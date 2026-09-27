@@ -88,6 +88,7 @@ Ajustes para mostrar el día de la semana (%a) en el reloj y la apertura interac
 
 ### 👨🏻‍💻 JSON
 
+```bash
 {
     "layer": "top",
     "position": "top",
@@ -210,12 +211,15 @@ Ajustes para mostrar el día de la semana (%a) en el reloj y la apertura interac
         "on-click": "wlogout"
     }
 }
+```
+
 
 ## 🎨 Ajustes CSS de Waybar (~/.config/waybar/style.css)
 Corrección para mantener bordes estables en los hovers de los módulos:
 
 ### 👨🏻‍💻 CSS
 
+```bash
 #pulseaudio:hover,
 #bluetooth:hover,
 #backlight:hover,
@@ -377,7 +381,7 @@ window#waybar {
     background-color: #ff4d6d;
     box-shadow: 0 0 12px #ff4d6d;
 }
-
+```
 
 
 ## ⌨️ Atajos y Reglas de Ventanas (~/.config/hypr/hyprland.lua)
@@ -388,22 +392,27 @@ Atajos para Capturas de Pantalla:
 -- Capturar pantalla completa y copiar al portapapeles (Super + Print)
 ```bash
 hl.bind("SUPER", "Print", "exec", "grim - | wl-copy")
+```
 
 -- Seleccionar una región y copiar al portapapeles (Solo Print)
 ```bash
 hl.bind("", "Print", "exec", "grim -g "$(slurp)" - | wl-copy")
+```
 
 -- Seleccionar área y abrir editor interactivo Swappy (Super + Shift + S)
 ```bash
 hl.bind("SUPER_SHIFT", "S", "exec", "grim -g "$(slurp)" - | swappy -f -")
+```
 
 -- Captura completa guardada en carpeta usando Hyprshot (Super + Print)
 ```bash
 hl.bind("SUPER", "Print", "exec", "hyprshot -m output -o ~/Imágenes/Capturas")
+```
 
 -- Captura de región guardada en carpeta usando Hyprshot (Solo Print)
 ```bash
 hl.bind("", "Print", "exec", "hyprshot -m region -o ~/Imágenes/Capturas")
+```
 
 
 #### Reglas de Ventanas Flotantes (`window_rules`):
