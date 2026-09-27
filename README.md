@@ -415,10 +415,11 @@ hl.bind("", "Print", "exec", "hyprshot -m region -o ~/Imágenes/Capturas")
 ```
 
 
-#### Reglas de Ventanas Flotantes (`window_rules`):
-```lua
----- REGLAS DE VENTANAS FLOTANTES --- (~/.config/hypr/hyprland.lua)
+## Reglas de Ventanas Flotantes (`window_rules`):
 
+### ---- REGLAS DE VENTANAS FLOTANTES --- (~/.config/hypr/hyprland.lua)
+
+```bash
 -- Ventana flotante para la red Wi-Fi desde Waybar
 hl.window_rule({
 name = "wifi-float",
@@ -440,47 +441,76 @@ match = { class = "^.whatsapp.$" },
 float = true,
 })
 
-💻 3. Comandos Útiles de Consola y Diagnóstico
+```
+
+## 💻 3. Comandos Útiles de Consola y Diagnóstico
 ⚙️ Gestión de Hyprland y Waybar
-Bash
-# Recargar configuración de Hyprland
+
+### Recargar configuración de Hyprland
+```bash
 hyprctl reload
+```
 
-# Reiniciar Waybar en segundo plano
+### Reiniciar Waybar en segundo plano
+```bash
 killall waybar && waybar &
+```
 
-# Crear carpeta para capturas
+### Crear carpeta para capturas
+```bash
 mkdir -p ~/Imágenes/Capturas
-🌐 Redes y VPN
-Bash
-# Consultar IP local e interfaces
+```
+
+
+## 🌐 Redes y VPN
+### Consultar IP local e interfaces
+```bash
 ip a
+```
 
 # Gestor gráfico TUI para Wi-Fi
+```bash
 nmtui
+```
 
-# Escanear redes Wi-Fi
+### Escanear redes Wi-Fi
+```bash
 nmcli dev wifi list
+```
 
-# Desbloquear antenas de red (RF-kill)
+### Desbloquear antenas de red (RF-kill)
+```bash
 sudo rfkill unblock all
+```
 
-# Reiniciar NetworkManager
+### Reiniciar NetworkManager
+```bash
 sudo systemctl restart NetworkManager
+```
 
-# Restablecer interfaz tras cerrar ProtonVPN
+### Restablecer interfaz tras cerrar ProtonVPN
+```bash
 sudo ip link set dev tun0 down 2>/dev/null
 nmcli networking off && nmcli networking on
+```
 
-# Limpiar caché DNS
+### Limpiar caché DNS
+```bash
 sudo resolvectl flush-caches
-🖥️ Diagnóstico de Hardware y Pantalla
-Bash
-# Consultar información de monitores en Hyprland
+```
+
+## 🖥️ Diagnóstico de Hardware y Pantalla
+### Consultar información de monitores en Hyprland
+```bash
 hyprctl monitors
+```
 
-# Verificar tarjetas y controladores PCI (Red, GPU, etc.)
+### Verificar tarjetas y controladores PCI (Red, GPU, etc.)
+```bash
 lspci -k | grep -iA 3 network
+```
 
-# Listar dispositivos USB
+### Listar dispositivos USB
+```bash
 lsusb
+```
