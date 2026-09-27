@@ -468,7 +468,7 @@ mkdir -p ~/Imágenes/Capturas
 ip a
 ```
 
-# Gestor gráfico TUI para Wi-Fi
+### Gestor gráfico TUI para Wi-Fi
 ```bash
 nmtui
 ```
