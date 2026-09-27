@@ -7,86 +7,86 @@ Documentación y guía de configuración para un entorno de escritorio optimizad
 💬 Mensajería y Productividad
 
 
-# WhatsApp WebApp / ZapZap (Cliente de escritorio)
+### WhatsApp WebApp / ZapZap (Cliente de escritorio)
 ```bash
 paru -S zapzap
 ```
 
-# Telegram Desktop
+### Telegram Desktop
 ```bash
 sudo pacman -S telegram-desktop
 ```
 
-# Signal Messenger
+### Signal Messenger
 ```bash
 sudo pacman -S signal-desktop
 ```
 
-# Clientes multicuenta (Ferdium / Rambox)
+### Clientes multicuenta (Ferdium / Rambox)
 ```bash
 paru -S ferdium-bin
 ```
 
 ## 🌐 Navegación Web
 
-# Firefox (Versión optimizada de CachyOS) y paquete de idioma en español
+### Firefox (Versión optimizada de CachyOS) y paquete de idioma en español
 ```bash
 sudo pacman -S firefox firefox-i18n-es-es
 ```
 
-# Navegador Brave
+### Navegador Brave
 ```bash
 sudo pacman -S brave-bin
 ```
 
 ## 📸 Captura de Pantalla y Multimedia
 
-# Herramientas de captura (Grim + Slurp + Swappy + Portapapeles)
+## Herramientas de captura (Grim + Slurp + Swappy + Portapapeles)
 ```bash
 sudo pacman -S --needed grim slurp swappy wl-clipboard
 ```
 
-# Hyprshot (Capturas automáticas para Hyprland)
+### Hyprshot (Capturas automáticas para Hyprland)
 ```bash
 paru -S hyprshot
 ```
 
-# OBS Studio + Soporte para PipeWire/Wayland
+### OBS Studio + Soporte para PipeWire/Wayland
 ```bash
 sudo pacman -S --needed obs-studio pipewire-media-session xdg-desktop-portal-hyprland
 ```
 
 ## 🔒 Cifrado, Bóvedas y Seguridad
 
-# Cryptomator (Protección de carpetas mediante bóvedas cifradas)
+### Cryptomator (Protección de carpetas mediante bóvedas cifradas)
 ```bash
 sudo pacman -S cryptomator
 ```
 
-# VeraCrypt (Contenedores cifrados)
+### VeraCrypt (Contenedores cifrados)
 ```bash
 sudo pacman -S veracrypt
 ```
 
-# ProtonVPN (GUI)
+### ProtonVPN (GUI)
 ```bash
 paru -S protonvpn-gui
 ```
 
 ## 🎮 Juegos
 
-# TLauncher / Minecraft Java Edition
+### TLauncher / Minecraft Java Edition
 ```bash
 paru -S tlauncher
 ```
 
 
-### 📊 2. Configuración del Entorno de Escritorio
-## ⏰ Configuración de Waybar (~/.config/waybar/config.jsonc)
+## 📊 2. Configuración del Entorno de Escritorio
+### ⏰ Configuración de Waybar (~/.config/waybar/config.jsonc)
 
 Ajustes para mostrar el día de la semana (%a) en el reloj y la apertura interactiva del gestor de red (nmtui) al hacer clic sobre el ícono de Wi-Fi:
 
-## 👨🏻‍💻 JSON
+### 👨🏻‍💻 JSON
 
 {
     "layer": "top",
@@ -214,7 +214,7 @@ Ajustes para mostrar el día de la semana (%a) en el reloj y la apertura interac
 ## 🎨 Ajustes CSS de Waybar (~/.config/waybar/style.css)
 Corrección para mantener bordes estables en los hovers de los módulos:
 
-## 👨🏻‍💻 CSS
+### 👨🏻‍💻 CSS
 
 #pulseaudio:hover,
 #bluetooth:hover,
@@ -383,7 +383,7 @@ window#waybar {
 ## ⌨️ Atajos y Reglas de Ventanas (~/.config/hypr/hyprland.lua)
 
 Atajos para Capturas de Pantalla:
-# ---- ATAJOS DE CAPTURA DE PANTALLA --
+### ---- ATAJOS DE CAPTURA DE PANTALLA --
 
 -- Capturar pantalla completa y copiar al portapapeles (Super + Print)
 ```bash
