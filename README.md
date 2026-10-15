@@ -514,3 +514,69 @@ lspci -k | grep -iA 3 network
 ```bash
 lsusb
 ```
+
+## Guia de configuración de transición de imagen fondo de pantalla.🖥️🖼️
+
+### 1. Instalar swww
+```bash
+sudo pacman -S --needed swww
+```
+### 2. Crear tu carpeta de wallpapers
+```bash
+mkdir -p ~/Imágenes/Wallpapers
+```
+### 3. Crear el script de automatización y transición
+```bash
+micro ~/.config/hypr/swww_random.sh
+```
+#### Código
+```bash
+#!/bin/bash
+
+WALLPAPER_DIR="$HOME/Imágenes/Wallpapers"
+
+# 1. Iniciar el demonio de swww si no está activo
+if ! pgrep -x "swww-daemon" > /dev/null; then
+    swww-daemon --format xrgb &
+    sleep 1
+fi
+
+# 2. Bucle infinito para cambiar el wallpaper cada 10 minutos (600 segundos)
+while true; do
+    # Seleccionar una imagen aleatoria de la carpeta
+    RANDOM_WALLPAPER=$(find "$WALLPAPER_DIR" -type f \( -name "*.jpg" -o -name "*.png" -o -name "*.webp" \) | shuf -n 1)
+
+    if [ -n "$RANDOM_WALLPAPER" ]; then
+        # Aplicar el wallpaper con animación de transición
+        swww img "$RANDOM_WALLPAPER" \
+            --transition-type grow \
+            --transition-step 90 \
+            --transition-fps 60 \
+            --transition-duration 2
+    fi
+
+    # Esperar 10 minutos (600 segundos) antes del siguiente cambio
+    sleep 600
+done
+```
+
+### 4. Dar permisos de ejecución al script
+```bash
+chmod +x ~/.config/hypr/swww_random.sh
+```
+
+### 5. Configurar el inicio automático en Hyprland
+
+#### Abre tu archivo de configuración de Hyprland:
+```bash
+micro ~/.config/hypr/hyprland.conf
+```
+#### Añade la siguiente línea en la sección de inicio (exec-once):
+```bash
+exec-once = ~/.config/hypr/swww_random.sh
+```
+
+### 6. Comprobar.
+```bash
+~/.config/hypr/swww_random.sh &
+```
