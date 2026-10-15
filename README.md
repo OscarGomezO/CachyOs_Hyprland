@@ -580,3 +580,63 @@ exec-once = ~/.config/hypr/swww_random.sh
 ```bash
 ~/.config/hypr/swww_random.sh &
 ```
+
+
+## Guia de configuración de Maquinas Virtuales 🌐🥽
+
+### 1. Instalar KVM, QEMU y Virt-Manager
+```bash
+sudo pacman -S --needed qemu-desktop virt-manager libvirt dnsmasq iptables-nft edk2-ovmf swtpm
+```
+### 2. Habilitar los servicios e integrar tu usuario
+#### Activa e inicia el servicio de virtualización (libvirtd):
+```bash
+sudo systemctl enable --now libvirtd
+```
+#### Añade tu usuario al grupo libvirt e input para permitir el acceso sin pedir contraseña de superusuario constantemente:
+```bash
+sudo usermod -aG libvirt,input $USER
+```
+#### Inicia el servicio de red predeterminado de las máquinas virtuales:
+```bash
+sudo virsh net-start default
+sudo virsh net-autostart default
+```
+### 3. Descargar la ISO de Windows
+
+Descarga la imagen ISO oficial desde la web de Microsoft:
+https://www.microsoft.com/en-us/software-download/windows10
+
+### 4. Crear y Configurar la Máquina Virtual en Virt-Manager
+
+Abre Gestor de máquinas virtuales (Virt-Manager) desde el lanzador de aplicaciones (wofi) o la terminal:
+```bash
+virt-manager
+```
+*Haz clic en el botón superior izquierdo 
+*Crear nueva máquina virtual (ícono de pantalla con un destello)
+
+Paso 1 del asistente: Selecciona Medio de instalación local (imagen ISO) y haz clic en Adelante.
+
+Paso 2: Haz clic en Examinar... $\rightarrow$ Navegar localmente y selecciona el archivo ISO de Windows que descargaste.
+
+Paso 3 (Recursos):Memoria (RAM): Asigna mínimo 8192 MB (8 GB) para trabajar cómodamente con Power BI y modelos DAX.CPUs: Asigna la mitad de los núcleos hilos de tu procesador (ej. 4 o 6 núcleos).
+
+Paso 4 (Almacenamiento): Asigna al menos 60 GB - 80 GB de espacio en disco.
+
+Paso 5 (Finalizar):
+
+## SOLUCIÓN AL PROBLEMA DEL RENDIMIENTO DEL S.O VIRTUAL.
+
+#### Reasignar los núcleos de CPU (La solución principal)
+
+1. Apaga la máquina virtual de Windows.
+2. Abre Virt-Manager y entra a los detalles del hardware (ícono de la bombilla i).
+3. Ve a la sección CPUs.
+4. Ajusta la asignación a un número equilibrado:
+    CPUs virtuales totales (Current allocation): Asigna 4 o como máximo 6 núcleos. (Con 4 u 8 hilos, Windows 10 y Power BI funcionan perfectamente sin ahogar al host).
+5. Despliega la sección Topology (Topología) y márcala si está disponible:
+    Sockets: 1
+    Cores (Núcleos): 4 (o 6)
+    Threads (Hilos): 1 o 2
+6. Aplica los cambios.
