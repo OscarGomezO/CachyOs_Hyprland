@@ -613,20 +613,17 @@ Abre Gestor de máquinas virtuales (Virt-Manager) desde el lanzador de aplicacio
 ```bash
 virt-manager
 ```
-*Haz clic en el botón superior izquierdo 
-*Crear nueva máquina virtual (ícono de pantalla con un destello)
 
-Paso 1 del asistente: Selecciona Medio de instalación local (imagen ISO) y haz clic en Adelante.
+➣Haz clic en el botón superior izquierdo.
+➣Crear nueva máquina virtual (ícono de pantalla con un destello)
 
-Paso 2: Haz clic en Examinar... $\rightarrow$ Navegar localmente y selecciona el archivo ISO de Windows que descargaste.
+⧪Paso 1 del asistente: Selecciona Medio de instalación local (imagen ISO) y haz clic en Adelante.
+⧪Paso 2: Haz clic en Examinar... $\rightarrow$ Navegar localmente y selecciona el archivo ISO de Windows que descargaste.
+⧪Paso 3 (Recursos):Memoria (RAM): Asigna mínimo 8192 MB (8 GB) para trabajar cómodamente con Power BI y modelos DAX.CPUs: Asigna la mitad de los núcleos hilos de tu procesador (ej. 4 o 6 núcleos).
+⧪Paso 4 (Almacenamiento): Asigna al menos 60 GB - 80 GB de espacio en disco.
+⧪Paso 5 (Finalizar):
 
-Paso 3 (Recursos):Memoria (RAM): Asigna mínimo 8192 MB (8 GB) para trabajar cómodamente con Power BI y modelos DAX.CPUs: Asigna la mitad de los núcleos hilos de tu procesador (ej. 4 o 6 núcleos).
-
-Paso 4 (Almacenamiento): Asigna al menos 60 GB - 80 GB de espacio en disco.
-
-Paso 5 (Finalizar):
-
-## SOLUCIÓN AL PROBLEMA DEL RENDIMIENTO DEL S.O VIRTUAL.
+## SOLUCIÓN PROBLEMA DE RENDIMIENTO DEL S.O Win VIRTUAL 🛠️
 
 #### Reasignar los núcleos de CPU (La solución principal)
 
@@ -634,7 +631,7 @@ Paso 5 (Finalizar):
 2. Abre Virt-Manager y entra a los detalles del hardware (ícono de la bombilla i).
 3. Ve a la sección CPUs.
 4. Ajusta la asignación a un número equilibrado:
-    CPUs virtuales totales (Current allocation): Asigna 4 o como máximo 6 núcleos. (Con 4 u 8 hilos, Windows 10 y Power BI funcionan perfectamente sin ahogar al host).
+    CPUs virtuales totales (Current allocation): Asigna 4 o como máximo 6 núcleos. (Con 4 u 8 hilos, Windows 10 funcionará perfectamente sin ahogar al host).
 5. Despliega la sección Topology (Topología) y márcala si está disponible:
     Sockets: 1
     Cores (Núcleos): 4 (o 6)
